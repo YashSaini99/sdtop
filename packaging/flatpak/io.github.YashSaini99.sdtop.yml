@@ -20,12 +20,17 @@ build-options:
   env:
     GOBIN: /app/bin
     GOROOT: /usr/lib/sdk/golang
+    CGO_ENABLED: '1'
 
 modules:
+  - name: systemd-dev
+    buildsystem: simple
+    build-commands:
+      - echo "systemd development files from runtime"
   - name: sdtop
     buildsystem: simple
     build-commands:
-      - . /usr/lib/sdk/golang/enable.sh && go build -o sdtop ./cmd/main.go
+      - . /usr/lib/sdk/golang/enable.sh && CGO_ENABLED=1 go build -ldflags="-s -w" -o sdtop ./cmd/main.go
       - install -Dm755 sdtop /app/bin/sdtop
   sources:
     - type: git

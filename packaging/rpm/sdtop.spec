@@ -8,7 +8,7 @@ URL:            https://github.com/YashSaini99/sdtop
 Source0:        https://github.com/YashSaini99/%{name}/archive/v%{version}.tar.gz
 
 BuildRequires:  golang >= 1.21
-BuildRequires:  systemd
+BuildRequires:  systemd-devel
 Requires:       systemd
 
 %description
@@ -20,8 +20,10 @@ keyboard-driven interface.
 %autosetup
 
 %build
-export CGO_ENABLED=0
-go build -o %{name} ./cmd/main.go
+export CGO_ENABLED=1
+export CGO_CFLAGS="${CFLAGS}"
+export CGO_LDFLAGS="${LDFLAGS}"
+go build -ldflags="-s -w" -o %{name} ./cmd/main.go
 
 %install
 install -Dm755 %{name} %{buildroot}%{_bindir}/%{name}

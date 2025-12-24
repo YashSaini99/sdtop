@@ -46,5 +46,8 @@ parts:
     source-type: git
     build-snaps:
       - go/1.21/stable
+    build-packages:
+      - libsystemd-dev
     override-build: |
-      go build -o $SNAPCRAFT_PART_INSTALL/bin/sdtop ./cmd/main.go
+      export CGO_ENABLED=1
+      go build -ldflags="-s -w" -o $SNAPCRAFT_PART_INSTALL/bin/sdtop ./cmd/main.go
