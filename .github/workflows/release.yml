@@ -23,7 +23,24 @@ jobs:
 
       - name: Build binaries
         run: |
-          ./scripts/build-release.sh ${GITHUB_REF#refs/tags/v}
+          VERSION=${GITHUB_REF#refs/tags/v}
+          mkdir -p dist
+          
+          # Build for linux/amd64
+          GOOS=linux GOARCH=amd64 go build -o sdtop-${VERSION}-linux-amd64 ./cmd/main.go
+          tar -czf dist/sdtop-${VERSION}-linux-amd64.tar.gz sdtop-${VERSION}-linux-amd64
+          
+          # Build for linux/arm64
+          GOOS=linux GOARCH=arm64 go build -o sdtop-${VERSION}-linux-arm64 ./cmd/main.go
+          tar -czf dist/sdtop-${VERSION}-linux-arm64.tar.gz sdtop-${VERSION}-linux-arm64
+          
+          # Build for linux/arm (v7)
+          GOOS=linux GOARCH=arm GOARM=7 go build -o sdtop-${VERSION}-linux-armv7 ./cmd/main.go
+          tar -czf dist/sdtop-${VERSION}-linux-armv7.tar.gz sdtop-${VERSION}-linux-armv7
+          
+          # Generate checksums
+          cd dist
+          sha256sum *.tar.gz > checksums.txt
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
