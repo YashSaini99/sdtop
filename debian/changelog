@@ -1,0 +1,19 @@
+sdtop (1.0.1-1) unstable; urgency=medium
+
+  * Fix RPM packaging for COPR builds
+  * Add git-core dependency
+  * Disable debug package for Go builds
+
+ -- Yash Saini <yashsaini99@example.com>  Tue, 24 Dec 2024 12:00:00 +0000
+
+sdtop (1.0.0-1) unstable; urgency=medium
+
+  * Initial release
+  * Service list with color-coded status
+  * Real-time log streaming from journald
+  * Process tree visualization
+  * Service control (start/stop/restart/enable/disable)
+  * Service filtering by state
+  * Keyboard-driven interface
+
+ -- Yash Saini <yashsaini99@example.com>  Mon, 01 Jan 2024 00:00:00 +0000
