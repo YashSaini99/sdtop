@@ -81,7 +81,7 @@ brew install sdtop
 
 **One-line install (recommended):**
 ```bash
-curl -sL https://raw.githubusercontent.com/YashSaini99/sdtop/master/install.sh | bash
+curl -sL https://raw.githubusercontent.com/YashSaini99/sdtop/main/install.sh | bash
 ```
 
 **Manual download:**
@@ -213,33 +213,6 @@ View()      → Render current state to terminal
 - Context cancellation prevents memory leaks
 - Background goroutines for data fetching
 
-## MVP Scope
-
-This is the MVP (Minimum Viable Product) release. It includes:
-
-✅ Service discovery and listing with status indicators
-✅ Live log streaming with priority highlighting
-✅ Process tree visualization for debugging
-✅ Service control (start/stop/restart/enable/disable)
-✅ Service filtering (all/running/failed)
-✅ Keyboard navigation
-
-## Publishing & Distribution
-
-Want to distribute sdtop? See **[DISTRIBUTION.md](./DISTRIBUTION.md)** for comprehensive guides on:
-
-- Publishing to AUR (Arch Linux)
-- Creating .deb packages for Debian/Ubuntu
-- Building .rpm packages for Fedora/RHEL
-- Publishing to Flatpak/Flathub
-- Creating Snap packages
-- Submitting to Homebrew
-- Setting up automated releases with GitHub Actions
-
-The project includes ready-to-use packaging files for all major Linux distributions.
-✅ Context-aware UI
-✅ Split-pane layout
-
 ## Use Cases
 
 **Debug a failing service:**
@@ -263,18 +236,6 @@ The project includes ready-to-use packaging files for all major Linux distributi
 2. Press `e` to enable on boot
 3. Press `d` to disable from boot
 
-## Future Enhancements (Post-MVP)
-
-- Log filtering and search within logs
-- Export logs to file
-- Mouse support for clicking
-- Custom themes and colors
-- Configuration file support
-- Systemd timer support
-- Service dependency graph
-- CPU/Memory usage per service
-- Service restart history
-
 ## Dependencies
 
 - [Bubble Tea](https://github.com/charmbracelet/bubbletea) - TUI framework
@@ -284,8 +245,4 @@ The project includes ready-to-use packaging files for all major Linux distributi
 
 ## License
 
-[Add your license here]
-
-## Contributing
-
-[Add contribution guidelines here]
+[LICENSE](https://github.com/YashSaini99/sdtop/blob/main/LICENSE)
