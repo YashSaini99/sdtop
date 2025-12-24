@@ -3,12 +3,17 @@ Version:        1.0.0
 Release:        1%{?dist}
 Summary:        Terminal-based systemd service manager
 
+# Disable Go build macros that force CGO_ENABLED=0
+%global _dwz_low_mem_die_limit 0
+%undefine _auto_set_build_flags
+
 License:        MIT
 URL:            https://github.com/YashSaini99/sdtop
 Source0:        https://github.com/YashSaini99/%{name}/archive/v%{version}.tar.gz
 
 BuildRequires:  golang >= 1.21
 BuildRequires:  systemd-devel
+BuildRequires:  git-core
 Requires:       systemd
 
 %description
@@ -20,6 +25,7 @@ keyboard-driven interface.
 %autosetup
 
 %build
+# Force CGO for systemd bindings (override Fedora defaults)
 export CGO_ENABLED=1
 export CGO_CFLAGS="${CFLAGS}"
 export CGO_LDFLAGS="${LDFLAGS}"
