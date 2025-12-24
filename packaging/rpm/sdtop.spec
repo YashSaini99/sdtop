@@ -1,11 +1,9 @@
+%define debug_package %{nil}
+
 Name:           sdtop
 Version:        1.0.0
 Release:        1%{?dist}
 Summary:        Terminal-based systemd service manager
-
-# Disable Go build macros that force CGO_ENABLED=0
-%global _dwz_low_mem_die_limit 0
-%undefine _auto_set_build_flags
 
 License:        MIT
 URL:            https://github.com/YashSaini99/sdtop
