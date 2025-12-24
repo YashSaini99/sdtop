@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE = 1
+export DH_GOPKG := sdtop
+export CGO_ENABLED := 0
+
+%:
+	dh $@ --buildsystem=golang --with=golang
+
+override_dh_auto_build:
+	go build -o sdtop ./cmd/main.go
+
+override_dh_auto_install:
+	install -Dm755 sdtop debian/sdtop/usr/bin/sdtop
+
+override_dh_auto_test:
+	# Skip tests for now

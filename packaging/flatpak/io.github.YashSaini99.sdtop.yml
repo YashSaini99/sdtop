@@ -1,0 +1,33 @@
+app-id: io.github.YashSaini99.sdtop
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.golang
+command: sdtop
+
+finish-args:
+  # Need access to systemd
+  - --system-talk-name=org.freedesktop.systemd1
+  - --filesystem=host:ro
+  # Access to journal
+  - --filesystem=/var/log/journal:ro
+  - --filesystem=/run/log/journal:ro
+  # Access to /proc
+  - --filesystem=/proc:ro
+
+build-options:
+  env:
+    GOBIN: /app/bin
+    GOROOT: /usr/lib/sdk/golang
+
+modules:
+  - name: sdtop
+    buildsystem: simple
+    build-commands:
+      - . /usr/lib/sdk/golang/enable.sh && go build -o sdtop ./cmd/main.go
+      - install -Dm755 sdtop /app/bin/sdtop
+  sources:
+    - type: git
+      url: https://github.com/YashSaini99/sdtop.git
+      tag: v1.0.0

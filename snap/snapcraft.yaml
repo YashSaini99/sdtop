@@ -1,0 +1,50 @@
+name: sdtop
+version: '1.0.0'
+summary: Terminal-based systemd service manager
+description: |
+  Interactive TUI for managing systemd services with real-time log streaming
+  and process tree visualization. Features:
+  
+  - View and control systemd services (start/stop/restart/enable/disable)
+  - Live log streaming from journald with priority highlighting
+  - Process tree visualization showing parent-child relationships
+  - Color-coded status indicators and intuitive keyboard navigation
+  - Filter services by state (all/running/failed)
+  
+  Keyboard shortcuts:
+  - j/k or ↑/↓: Navigate services
+  - r: Restart service
+  - s: Start service
+  - t: Stop service
+  - e: Enable on boot
+  - d: Disable on boot
+  - p: Show process tree
+  - 1/2/3: Filter services
+  - f: Show only failed
+  - q: Quit
+
+grade: stable
+confinement: classic
+base: core22
+
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+  - build-on: armhf
+
+apps:
+  sdtop:
+    command: bin/sdtop
+    plugs:
+      - system-observe
+      - log-observe
+
+parts:
+  sdtop:
+    plugin: go
+    source: .
+    source-type: git
+    build-snaps:
+      - go/1.21/stable
+    override-build: |
+      go build -o $SNAPCRAFT_PART_INSTALL/bin/sdtop ./cmd/main.go

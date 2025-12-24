@@ -1,0 +1,23 @@
+Source: sdtop
+Section: admin
+Priority: optional
+Maintainer: Your Name <your.email@example.com>
+Build-Depends: debhelper-compat (= 13), golang-go (>= 2:1.21~)
+Standards-Version: 4.6.0
+Homepage: https://github.com/YashSaini99/sdtop
+Vcs-Git: https://github.com/YashSaini99/sdtop.git
+Vcs-Browser: https://github.com/YashSaini99/sdtop
+
+Package: sdtop
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, systemd
+Description: Terminal-based systemd service manager
+ sdtop is an interactive terminal application for managing systemd services.
+ .
+ Features:
+  - View all systemd services with color-coded status
+  - Real-time log streaming from journald
+  - Process tree visualization
+  - Start, stop, restart, enable, disable services
+  - Filter services by state (running, failed, all)
+  - Keyboard-driven interface with vi-style shortcuts

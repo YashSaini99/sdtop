@@ -1,0 +1,63 @@
+# Binaries
+sdtop
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation (internal/dev only - not for repo)
+DISTRIBUTION.md
+DISTRIBUTION_SUMMARY.md
+RELEASE_CHECKLIST.md
+QUICKSTART.md
+CONTRIBUTING.md
+ARCHITECTURE.md
+
+# Build artifacts
+dist/
+*.tar.gz
+*.deb
+*.rpm
+*.flatpak
+checksums.txt
+
+# Packaging temp files
+packaging/arch/pkg/
+packaging/arch/src/
+packaging/arch/*.pkg.tar.zst
+packaging/debian/.debhelper/
+packaging/debian/debhelper-build-stamp
+packaging/debian/files
+packaging/debian/sdtop/
+packaging/debian/sdtop.debhelper.log
+packaging/debian/sdtop.substvars
+packaging/flatpak/build-dir/
+packaging/flatpak/repo/
+packaging/flatpak/.flatpak-builder/
+
+# AUR repo (keep separate)
+sdtop-aur/

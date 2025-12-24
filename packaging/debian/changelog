@@ -1,0 +1,11 @@
+sdtop (1.0.0-1) unstable; urgency=medium
+
+  * Initial release
+  * Service list with color-coded status
+  * Real-time log streaming from journald
+  * Process tree visualization
+  * Service control (start/stop/restart/enable/disable)
+  * Service filtering by state
+  * Keyboard-driven interface
+
+ -- Your Name <your.email@example.com>  Mon, 01 Jan 2024 00:00:00 +0000
