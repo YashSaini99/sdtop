@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:           sdtop
-Version:        1.0.0
+Version:        1.0.1
 Release:        1%{?dist}
 Summary:        Terminal-based systemd service manager
 
@@ -39,5 +39,9 @@ install -Dm644 README.md %{buildroot}%{_docdir}/%{name}/README.md
 %{_bindir}/%{name}
 
 %changelog
+* Tue Dec 24 2025 Yash Saini <yashsaini99@example.com> - 1.0.1-1
+- Fix COPR RPM build: disable debug package for Go (issue #1)
+- Add git-core dependency for Go module fetching
+
 * Tue Dec 24 2025 Your Name <your.email@example.com> - 1.0.0-1
 - Initial release
