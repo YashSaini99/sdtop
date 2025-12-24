@@ -1,7 +1,7 @@
 Source: sdtop
 Section: admin
 Priority: optional
-Maintainer: Your Name <your.email@example.com>
+Maintainer: Yash Saini <yashsaini99@example.com>
 Build-Depends: debhelper-compat (= 13), golang-go (>= 2:1.21~), libsystemd-dev
 Standards-Version: 4.6.0
 Homepage: https://github.com/YashSaini99/sdtop
