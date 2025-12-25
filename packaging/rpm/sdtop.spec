@@ -43,5 +43,5 @@ install -Dm644 README.md %{buildroot}%{_docdir}/%{name}/README.md
 - Fix COPR RPM build: disable debug package for Go (issue #1)
 - Add git-core dependency for Go module fetching
 
-* Tue Dec 24 2025 Your Name <your.email@example.com> - 1.0.0-1
+* Tue Dec 24 2025 Your Name <ysyashsaini3@gmail.com> - 1.0.0-1
 - Initial release
