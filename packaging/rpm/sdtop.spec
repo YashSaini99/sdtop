@@ -39,9 +39,9 @@ install -Dm644 README.md %{buildroot}%{_docdir}/%{name}/README.md
 %{_bindir}/%{name}
 
 %changelog
-* Tue Dec 24 2025 Yash Saini <yashsaini99@example.com> - 1.0.1-1
+* Tue Dec 24 2025 Yash Saini <ysyashsaini3@gmail.com> - 1.0.1-1
 - Fix COPR RPM build: disable debug package for Go (issue #1)
 - Add git-core dependency for Go module fetching
 
-* Tue Dec 24 2025 Your Name <ysyashsaini3@gmail.com> - 1.0.0-1
+* Tue Dec 24 2025 Yash Saini <ysyashsaini3@gmail.com> - 1.0.0-1
 - Initial release
